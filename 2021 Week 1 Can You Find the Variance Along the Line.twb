@@ -1,0 +1,959 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20212.21.0605.1023                               -->
+<workbook original-version='18.1' source-build='2021.2.0 (20212.21.0605.1023)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='2021Week1CanYouFindtheVarianceAlongtheLine_16389720291810' path='/workbooks' revision='1.1' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Selected the Year' datatype='date' default-format='*yyyy' name='[매개 변수 1]' param-domain-type='list' role='measure' type='quantitative' value='#2019-01-01#'>
+        <calculation class='tableau' formula='#2019-01-01#' />
+        <members>
+          <member value='#1995-01-01#' />
+          <member value='#1996-01-01#' />
+          <member value='#1997-01-01#' />
+          <member value='#1998-01-01#' />
+          <member value='#1999-01-01#' />
+          <member value='#2000-01-01#' />
+          <member value='#2001-01-01#' />
+          <member value='#2002-01-01#' />
+          <member value='#2003-01-01#' />
+          <member value='#2004-01-01#' />
+          <member value='#2005-01-01#' />
+          <member value='#2006-01-01#' />
+          <member value='#2007-01-01#' />
+          <member value='#2008-01-01#' />
+          <member value='#2009-01-01#' />
+          <member value='#2010-01-01#' />
+          <member value='#2011-01-01#' />
+          <member value='#2012-01-01#' />
+          <member value='#2013-01-01#' />
+          <member value='#2014-01-01#' />
+          <member value='#2015-01-01#' />
+          <member value='#2016-01-01#' />
+          <member value='#2017-01-01#' />
+          <member value='#2018-01-01#' />
+          <member value='#2019-01-01#' />
+        </members>
+      </column>
+      <column caption='Comparison Period' datatype='string' name='[매개 변수 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Most Recent&quot;'>
+        <calculation class='tableau' formula='&quot;Most Recent&quot;' />
+        <members>
+          <member value='&quot;First Year&quot;' />
+          <member value='&quot;Most Recent&quot;' />
+          <member value='&quot;Previous Year&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='Trends(Food Insecurity - 1995 to 2019)' inline='true' name='federated.11fddq718mlgtd152n3qm0l83cty' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Food Insecurity - 1995 to 2019' name='excel-direct.104kwb31kmx4e212iboft029u6cy'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='C:/Users/IVY/Downloads/Food Insecurity - 1995 to 2019.xlsx' interpretationMode='1' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.104kwb31kmx4e212iboft029u6cy' name='Trends' table='[Trends$]' type='table'>
+          <columns gridOrigin='A1:C37:no:A1:C37:6' header='yes' lost='0' outcome='1' processed='75'>
+            <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='0' />
+            <column datatype='real' name='Food insecurity (includes low and very low food security) Percent of households' ordinal='1' />
+            <column datatype='real' name='Very low food security Percent of households' ordinal='2' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='excel-direct.104kwb31kmx4e212iboft029u6cy' name='Trends' table='[Trends$]' type='table'>
+          <columns gridOrigin='A1:C37:no:A1:C37:6' header='yes' lost='0' outcome='1' processed='75'>
+            <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='0' />
+            <column datatype='real' name='Food insecurity (includes low and very low food security) Percent of households' ordinal='1' />
+            <column datatype='real' name='Very low food security Percent of households' ordinal='2' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Trends]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>9</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C37:no:A1:C37:6&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>75</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[Trends]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LKO_RKR_S2' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Trends_FDFEE668FEFC4244A1C18EE86D1C8341]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Food insecurity (includes low and very low food security) Percent of households</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Food insecurity (includes low and very low food security) Percent of households]</local-name>
+            <parent-name>[Trends]</parent-name>
+            <remote-alias>Food insecurity (includes low and very low food security) Percent of households</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Trends_FDFEE668FEFC4244A1C18EE86D1C8341]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Very low food security Percent of households</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Very low food security Percent of households]</local-name>
+            <parent-name>[Trends]</parent-name>
+            <remote-alias>Very low food security Percent of households</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Trends_FDFEE668FEFC4244A1C18EE86D1C8341]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Parse the year' datatype='date' name='[Calculation_1350798460656304128]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='date(DATEPARSE(&apos;yyyy&apos;, STR(DATEPART(&apos;year&apos;, [Year]))))' />
+      </column>
+      <column caption='Identify the Years' datatype='date' name='[Calculation_1350798460659806209]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='If [Parameters].[매개 변수 2]= &quot;First Year&quot; THEN WINDOW_MIN(MIN([Calculation_1350798460656304128]))&#13;&#10;ELSEIF [Parameters].[매개 변수 2]= &quot;Most Recent Year&quot; THEN WINDOW_MAX(MAX([Calculation_1350798460656304128]))&#13;&#10;ELSE [Parameters].[매개 변수 1]-1&#13;&#10;END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Find the Values for Selection' datatype='real' name='[Calculation_1350798460662312963]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF attr([Calculation_1350798460656304128]) = [Parameters].[매개 변수 1] OR ATTR(year([Calculation_1350798460656304128])) = year([Calculation_1350798460659806209])&#13;&#10;THEN ATTR([Food insecurity (includes low and very low food security) Percent of households])&#13;&#10;END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Color the Dots' datatype='boolean' name='[Calculation_1350798460664012804]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='ATTR([Calculation_1350798460656304128])=[Parameters].[매개 변수 1]' />
+      </column>
+      <column caption='Find Value - Selected Year' datatype='real' name='[Calculation_1350798460664332293]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='LOOKUP(IF attr([Calculation_1350798460656304128])= [Parameters].[매개 변수 1] THEN MIN([Food insecurity (includes low and very low food security) Percent of households]) END)'>
+          <table-calc ordering-field='' ordering-type='Field' tc-options='Fixed'>
+            <address />
+          </table-calc>
+        </calculation>
+      </column>
+      <column caption='Find Value - Comparison Period' datatype='real' name='[Calculation_1350798460665044998]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Parameters].[매개 변수 2]=&apos;First Year&apos; THEN&#13;&#10;LOOKUP(ATTR([Food insecurity (includes low and very low food security) Percent of households]), FIRST())&#13;&#10;&#13;&#10;ELSEIF [Parameters].[매개 변수 2]=&apos;Most Recent Year&apos; THEN&#13;&#10;LOOKUP(ATTR([Food insecurity (includes low and very low food security) Percent of households]), FIRST())&#13;&#10;&#13;&#10;ELSE&#13;&#10;LOOKUP(LOOKUP(SUM([Food insecurity (includes low and very low food security) Percent of households]), -(ATTR([Calculation_1350798460656304128])-([Parameters].[매개 변수 1]-1))))&#13;&#10;&#13;&#10;END'>
+          <table-calc ordering-field='' ordering-type='Field' tc-options='Fixed'>
+            <address />
+          </table-calc>
+        </calculation>
+      </column>
+      <column caption='Variance' datatype='real' name='[Calculation_1350798460666359815]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_1350798460664332293]/[Calculation_1350798460665044998]-1'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Food insecurity' datatype='real' name='[Food insecurity (includes low and very low food security) Percent of households]' role='measure' type='quantitative' />
+      <column datatype='real' hidden='true' name='[Very low food security Percent of households]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Trends' datatype='table' name='[__tableau_internal_object_id__].[Trends_FDFEE668FEFC4244A1C18EE86D1C8341]' role='measure' type='quantitative' />
+      <column-instance column='[Food insecurity (includes low and very low food security) Percent of households]' derivation='Sum' name='[sum:Food insecurity (includes low and very low food security) Percent of households:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1350798460662312963]' derivation='User' name='[usr:Calculation_1350798460662312963:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' />
+        <table-calc field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460659806209]' ordering-type='Rows' />
+      </column-instance>
+      <column-instance column='[Calculation_1350798460664012804]' derivation='User' name='[usr:Calculation_1350798460664012804:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='ko_KR' class='hyper' dbname='C:/Users/IVY/Desktop/Tableau/테블로 추출파일/Trends(Food Insecurity - 1995 to 2019).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='12/08/2021 01:59:57 PM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='Trends(Food Insecurity - 1995 to 2019)' increment-value='%null%' refresh-type='create' rows-inserted='25' timestamp-start='2021-12-08 13:59:57.526' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Trends</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>25</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Trends_FDFEE668FEFC4244A1C18EE86D1C8341]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Food insecurity (includes low and very low food security) Percent of households</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Food insecurity (includes low and very low food security) Percent of households]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Food insecurity (includes low and very low food security) Percent of households</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Trends</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Trends_FDFEE668FEFC4244A1C18EE86D1C8341]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#000000'>
+              <bucket>&quot;[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460662312963:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[usr:Calculation_1350798460664012804:nk]' type='palette'>
+            <map to='#000000'>
+              <bucket>false</bucket>
+            </map>
+            <map to='#f0007b'>
+              <bucket>true</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;대한민국&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Selected the Year' datatype='date' default-format='*yyyy' name='[매개 변수 1]' param-domain-type='list' role='measure' type='quantitative' value='#2019-01-01#'>
+          <calculation class='tableau' formula='#2019-01-01#' />
+        </column>
+        <column caption='Comparison Period' datatype='string' name='[매개 변수 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Most Recent&quot;'>
+          <calculation class='tableau' formula='&quot;Most Recent&quot;' />
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Trends' id='Trends_FDFEE668FEFC4244A1C18EE86D1C8341'>
+            <properties context=''>
+              <relation connection='excel-direct.104kwb31kmx4e212iboft029u6cy' name='Trends' table='[Trends$]' type='table'>
+                <columns gridOrigin='A1:C37:no:A1:C37:6' header='yes' lost='0' outcome='1' processed='75'>
+                  <column datatype='date' date-parse-format='yyyy' name='Year' ordinal='0' />
+                  <column datatype='real' name='Food insecurity (includes low and very low food security) Percent of households' ordinal='1' />
+                  <column datatype='real' name='Very low food security Percent of households' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='시트 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#f000b7' fontsize='20'><![CDATA[<[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664332293:qk:2]>]]></run>
+            <run fontsize='10'>U.S HOUSEHOLDS WERE FOOD INSECURE OR LACKED CONSISTENT ACCESS TO ENOUGH FOOD(</run>
+            <run>Æ   </run>
+            <run fontsize='14'>Æ   </run>
+            <run fontcolor='#f000b7' fontsize='14'>&lt;[Parameters].[매개 변수 1]&gt;</run>
+            <run fontcolor='#000000' fontsize='11'>)</run>
+            <run>Æ&#10;</run>
+            <run fontsize='10'><![CDATA[<[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460666359815:qk:3]>  vs            <[Parameters].[매개 변수 2]>]]></run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Trends(Food Insecurity - 1995 to 2019)' name='federated.11fddq718mlgtd152n3qm0l83cty' />
+            <datasource caption='매개 변수' name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Selected the Year' datatype='date' default-format='*yyyy' name='[매개 변수 1]' param-domain-type='list' role='measure' type='quantitative' value='#2019-01-01#'>
+              <calculation class='tableau' formula='#2019-01-01#' />
+            </column>
+            <column caption='Comparison Period' datatype='string' name='[매개 변수 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Most Recent&quot;'>
+              <calculation class='tableau' formula='&quot;Most Recent&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.11fddq718mlgtd152n3qm0l83cty'>
+            <column caption='Parse the year' datatype='date' name='[Calculation_1350798460656304128]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='date(DATEPARSE(&apos;yyyy&apos;, STR(DATEPART(&apos;year&apos;, [Year]))))' />
+            </column>
+            <column caption='Identify the Years' datatype='date' name='[Calculation_1350798460659806209]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='If [Parameters].[매개 변수 2]= &quot;First Year&quot; THEN WINDOW_MIN(MIN([Calculation_1350798460656304128]))&#13;&#10;ELSEIF [Parameters].[매개 변수 2]= &quot;Most Recent Year&quot; THEN WINDOW_MAX(MAX([Calculation_1350798460656304128]))&#13;&#10;ELSE [Parameters].[매개 변수 1]-1&#13;&#10;END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Find the Values for Selection' datatype='real' name='[Calculation_1350798460662312963]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF attr([Calculation_1350798460656304128]) = [Parameters].[매개 변수 1] OR ATTR(year([Calculation_1350798460656304128])) = year([Calculation_1350798460659806209])&#13;&#10;THEN ATTR([Food insecurity (includes low and very low food security) Percent of households])&#13;&#10;END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Color the Dots' datatype='boolean' name='[Calculation_1350798460664012804]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='ATTR([Calculation_1350798460656304128])=[Parameters].[매개 변수 1]' />
+            </column>
+            <column caption='Find Value - Selected Year' datatype='real' name='[Calculation_1350798460664332293]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='LOOKUP(IF attr([Calculation_1350798460656304128])= [Parameters].[매개 변수 1] THEN MIN([Food insecurity (includes low and very low food security) Percent of households]) END)'>
+                <table-calc ordering-field='' ordering-type='Field' tc-options='Fixed'>
+                  <address />
+                </table-calc>
+              </calculation>
+            </column>
+            <column caption='Find Value - Comparison Period' datatype='real' name='[Calculation_1350798460665044998]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Parameters].[매개 변수 2]=&apos;First Year&apos; THEN&#13;&#10;LOOKUP(ATTR([Food insecurity (includes low and very low food security) Percent of households]), FIRST())&#13;&#10;&#13;&#10;ELSEIF [Parameters].[매개 변수 2]=&apos;Most Recent Year&apos; THEN&#13;&#10;LOOKUP(ATTR([Food insecurity (includes low and very low food security) Percent of households]), FIRST())&#13;&#10;&#13;&#10;ELSE&#13;&#10;LOOKUP(LOOKUP(SUM([Food insecurity (includes low and very low food security) Percent of households]), -(ATTR([Calculation_1350798460656304128])-([Parameters].[매개 변수 1]-1))))&#13;&#10;&#13;&#10;END'>
+                <table-calc ordering-field='' ordering-type='Field' tc-options='Fixed'>
+                  <address />
+                </table-calc>
+              </calculation>
+            </column>
+            <column caption='Variance' datatype='real' name='[Calculation_1350798460666359815]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_1350798460664332293]/[Calculation_1350798460665044998]-1'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Food insecurity' datatype='real' name='[Food insecurity (includes low and very low food security) Percent of households]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Year]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1350798460656304128]' derivation='None' name='[none:Calculation_1350798460656304128:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1350798460656304128]' derivation='None' name='[none:Calculation_1350798460656304128:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Food insecurity (includes low and very low food security) Percent of households]' derivation='Sum' name='[sum:Food insecurity (includes low and very low food security) Percent of households:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1350798460662312963]' derivation='User' name='[usr:Calculation_1350798460662312963:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+              <table-calc field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460659806209]' ordering-type='Rows' />
+            </column-instance>
+            <column-instance column='[Calculation_1350798460664012804]' derivation='User' name='[usr:Calculation_1350798460664012804:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1350798460664332293]' derivation='User' name='[usr:Calculation_1350798460664332293:qk:2]' pivot='key' type='quantitative'>
+              <table-calc level-address='[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:ok]' ordering-field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460656304128]' ordering-type='Field' tc-options='Parameter,Fixed'>
+                <address>
+                  <value>&quot;[Parameters].[매개 변수 1]&quot;</value>
+                </address>
+              </table-calc>
+            </column-instance>
+            <column-instance column='[Calculation_1350798460665044998]' derivation='User' name='[usr:Calculation_1350798460665044998:qk:2]' pivot='key' type='quantitative'>
+              <table-calc level-address='[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:ok]' ordering-field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460656304128]' ordering-type='Field' tc-options='Parameter,Fixed'>
+                <address>
+                  <value>&quot;[Parameters].[매개 변수 1]&quot;</value>
+                </address>
+              </table-calc>
+            </column-instance>
+            <column-instance column='[Calculation_1350798460666359815]' derivation='User' name='[usr:Calculation_1350798460666359815:qk:3]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+              <table-calc field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460664332293]' level-address='[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:ok]' ordering-field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460656304128]' ordering-type='Field' tc-options='Parameter,Fixed'>
+                <address>
+                  <value>&quot;[Parameters].[매개 변수 1]&quot;</value>
+                </address>
+              </table-calc>
+              <table-calc field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460665044998]' level-address='[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:ok]' ordering-field='[federated.11fddq718mlgtd152n3qm0l83cty].[Calculation_1350798460656304128]' ordering-type='Field' tc-options='Parameter,Fixed'>
+                <address>
+                  <value>&quot;[Parameters].[매개 변수 1]&quot;</value>
+                </address>
+              </table-calc>
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460662312963:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460662312963:qk]' scope='rows' value='false' />
+            <format attr='title' class='0' field='[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]' scope='cols' value='' />
+            <format attr='title' class='0' field='[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]' scope='rows' value='' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='border-width' scope='rows' value='0' />
+            <format attr='text-format' field='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460665044998:qk:2]' value='n#,##0&quot;%&quot;;-#,##0&quot;%&quot;' />
+            <format attr='text-format' field='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460666359815:qk:3]' value='*▲0%; ▼ 0%; &apos;N/C    &apos;' />
+            <format attr='text-format' field='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664332293:qk:2]' value='n#,##0&quot;%&quot;;-#,##0&quot;%&quot;' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='total' scope='rows' value='0' />
+            <format attr='border-style' data-class='total' scope='rows' value='none' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]' value='n#,##0.0&quot;%&quot;;-#,##0.0&quot;%&quot;' />
+            <format attr='text-format' field='[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]' value='*yyyy' />
+            <format attr='text-format' field='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460665044998:qk:2]' value='n#,##0&quot;%&quot;;-#,##0&quot;%&quot;' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='total' scope='rows' value='0' />
+            <format attr='border-style' data-class='total' scope='rows' value='none' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460665044998:qk:2]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664332293:qk:2]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460666359815:qk:3]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true'>&lt;</run>
+                <run bold='true'>[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]</run>
+                <run bold='true'>&gt; | &lt;</run>
+                <run bold='true'>[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]</run>
+                <run bold='true'>&gt; of U.S Household were food insecure</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.11fddq718mlgtd152n3qm0l83cty].[:Measure Names]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460665044998:qk:2]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664332293:qk:2]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460666359815:qk:3]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true'>&lt;</run>
+                <run bold='true'>[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]</run>
+                <run bold='true'>&gt; | &lt;</run>
+                <run bold='true'>[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]</run>
+                <run bold='true'>&gt; of U.S Household were food insecure</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.0099999997764825821' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460662312963:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664012804:nk]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460665044998:qk:2]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664332293:qk:2]' />
+              <lod column='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460666359815:qk:3]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true'>&lt;</run>
+                <run bold='true'>[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]</run>
+                <run bold='true'>&gt; | &lt;</run>
+                <run bold='true'>[federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk]</run>
+                <run bold='true'>&gt; of U.S Household were food insecure</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+        </panes>
+        <rows>([federated.11fddq718mlgtd152n3qm0l83cty].[sum:Food insecurity (includes low and very low food security) Percent of households:qk] + [federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460662312963:qk])</rows>
+        <cols>[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]</cols>
+      </table>
+      <simple-id uuid='{BABC46BC-0800-4B84-8DC8-3F662DFE33B2}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='대시보드 1'>
+      <style />
+      <size maxheight='800' maxwidth='1400' minheight='800' minwidth='1400' preset-index='17' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='매개 변수' name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Selected the Year' datatype='date' default-format='*yyyy' name='[매개 변수 1]' param-domain-type='list' role='measure' type='quantitative' value='#2019-01-01#'>
+          <calculation class='tableau' formula='#2019-01-01#' />
+          <members>
+            <member value='#1995-01-01#' />
+            <member value='#1996-01-01#' />
+            <member value='#1997-01-01#' />
+            <member value='#1998-01-01#' />
+            <member value='#1999-01-01#' />
+            <member value='#2000-01-01#' />
+            <member value='#2001-01-01#' />
+            <member value='#2002-01-01#' />
+            <member value='#2003-01-01#' />
+            <member value='#2004-01-01#' />
+            <member value='#2005-01-01#' />
+            <member value='#2006-01-01#' />
+            <member value='#2007-01-01#' />
+            <member value='#2008-01-01#' />
+            <member value='#2009-01-01#' />
+            <member value='#2010-01-01#' />
+            <member value='#2011-01-01#' />
+            <member value='#2012-01-01#' />
+            <member value='#2013-01-01#' />
+            <member value='#2014-01-01#' />
+            <member value='#2015-01-01#' />
+            <member value='#2016-01-01#' />
+            <member value='#2017-01-01#' />
+            <member value='#2018-01-01#' />
+            <member value='#2019-01-01#' />
+          </members>
+        </column>
+        <column caption='Comparison Period' datatype='string' name='[매개 변수 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Most Recent&quot;'>
+          <calculation class='tableau' formula='&quot;Most Recent&quot;' />
+          <members>
+            <member value='&quot;First Year&quot;' />
+            <member value='&quot;Most Recent&quot;' />
+            <member value='&quot;Previous Year&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type-v2='layout-flow' w='98858' x='571' y='1000'>
+            <zone h='98000' id='5' type-v2='layout-basic' w='98858' x='571' y='1000'>
+              <zone h='98000' id='3' name='시트 1' w='98858' x='571' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='3375' id='11' mode='compact' param='[Parameters].[매개 변수 1]' show-title='false' type-v2='paramctrl' w='2300' x='83700' y='3750' />
+        <zone h='3375' id='10' mode='compact' param='[Parameters].[매개 변수 2]' show-title='false' type-v2='paramctrl' w='2800' x='10500' y='7875' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='17' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='16' param='vert' type-v2='layout-flow' w='98858' x='571' y='1000'>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='시트 1' w='98858' x='571' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='3375' id='11' mode='compact' param='[Parameters].[매개 변수 1]' show-title='false' type-v2='paramctrl' w='2300' x='83700' y='3750'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='3375' id='10' mode='compact' param='[Parameters].[매개 변수 2]' show-title='false' type-v2='paramctrl' w='2800' x='10500' y='7875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{D3FE8128-8420-4FD1-B191-C28DD60DD520}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='dashboard' maximized='true' name='대시보드 1'>
+      <viewpoints>
+        <viewpoint name='시트 1'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.11fddq718mlgtd152n3qm0l83cty].[:Measure Names]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{36537897-AE78-4A62-A617-F568F0852800}' />
+    </window>
+    <window class='worksheet' name='시트 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='217'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='28'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[매개 변수 2]' type='parameter' />
+            <card mode='compact' param='[Parameters].[매개 변수 1]' type='parameter' />
+            <card pane-specification-id='1' param='[federated.11fddq718mlgtd152n3qm0l83cty].[:Measure Names]' type='color' />
+            <card pane-specification-id='2' param='[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664012804:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.11fddq718mlgtd152n3qm0l83cty].[none:Calculation_1350798460656304128:qk]</field>
+            <field>[federated.11fddq718mlgtd152n3qm0l83cty].[usr:Calculation_1350798460664012804:nk]</field>
+            <field>[federated.11fddq718mlgtd152n3qm0l83cty].[yr:Calculation_1350798460656304128:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{1B283891-0F81-48EA-A557-8089598576A9}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='대시보드 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='시트 1' width='192'>
+      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
+      rkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
